@@ -21,7 +21,8 @@
     "electron-squirrel-startup": "^1.0.0",
     "express": "^4.18.2",
     "fluent-ffmpeg": "^2.1.2",
-    "tesseract.js": "^5.0.3"
+    "tesseract.js": "^5.0.3",
+    "usb": "^2.11.0"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.4.2",

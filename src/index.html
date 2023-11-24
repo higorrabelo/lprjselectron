@@ -18,13 +18,28 @@
    </nav>
 
    <div class="conteudo">
-      <div id="hide">
-        <video id="fonte" width="640" height="480" autoplay>
-         
+      <div id="vid" class="hide">
+        <video id="fonte"  width="640" height="480" autoplay>
         </video>
+        <div class="d-flex justify-content-center me-4">
+         <div class="row">
+              <label for="">Resolução de Vídeo</label>
+              <select class="form-select form-select-me" name="definicao" id="definicao">
+                <option value="1">640x480</option>
+                <option value="2">800x600</option>
+                <option value="3">1280x720</option>
+              </select>
+              <div id="resultadoOCR"></div>
+         </div>
+        </div>
+        
       </div>
-      <button class="btn btn-success mt-4" onclick="acionarCamera()">Acionar Câmera</button>
+          
+      <div>
+        <button class="btn btn-success mt-4" onclick="acionarCamera()">Acionar Câmera</button>
+      <button class="btn btn-warning mt-4" onclick="capturarImagem()">Capturar Imagem</button>
       <button class="btn btn-danger mt-4" onclick="parar()">Parar</button>
+      </div>
    </div>
 
     <script src="./public/js/bootstrap.bundle.js"></script>

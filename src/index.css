@@ -16,7 +16,9 @@ body::-webkit-scrollbar {
 .hide{
   display: none;
 }
-
+.show{
+  display: block;
+}
 .conteudo{
   height: 100vh;
   width: 100vw;

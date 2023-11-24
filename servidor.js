@@ -1,7 +1,6 @@
 const express = require('express');
 const ffmpeg = require('fluent-ffmpeg');
 const url = "rtsp://admin:Root1234@10.0.0.4:554/cam/realmonitor?channel=1&subtype=0"
-
 const app = express();
 const port = 3000;
 
