@@ -27,3 +27,12 @@ body::-webkit-scrollbar {
   justify-content: center;
   align-items: center;
 }
+#canva{
+  display: none;
+}
+
+#foto{
+  height: 480px;
+  width: 640px;
+  background-color: blueviolet;
+}

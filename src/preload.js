@@ -6,4 +6,5 @@ contextBridge.exposeInMainWorld('actions',{
     exit:()=>ipcRenderer.invoke('exit'),
     minimize:()=>ipcRenderer.invoke('minimize'),
     maximize:()=>ipcRenderer.invoke('maximize'),
+    abrirArquivo:()=>ipcRenderer.invoke('abrirArquivo'),
 })

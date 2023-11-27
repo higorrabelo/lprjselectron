@@ -1,7 +1,6 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
-
-
+var regex = /(?:[A-Za-z]{3}1[A-Za-z]\d{2}|[A-Za-z]{3}-\d{4})/;
 const express = require('express');
 const ffmpeg = require('fluent-ffmpeg');
 const url = "rtsp://admin:Root1234@10.0.0.4:554/cam/realmonitor?channel=1&subtype=0"
@@ -33,6 +32,13 @@ app2.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
 
+const options = {
+  filters: [
+    { name: 'Imagens', extensions: ['jpg', 'png', 'gif'] },
+    { name: 'Todos os Arquivos', extensions: ['*'] }
+  ],
+  properties: ['openFile', 'multiSelections']
+};
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -50,7 +56,7 @@ const createWindow = () => {
     },
   });
 
-
+ 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
@@ -64,6 +70,10 @@ const createWindow = () => {
 
   ipcMain.handle('maximize',()=>{
     mainWindow.maximize();
+  })
+  
+  ipcMain.handle('abrirArquivo',()=>{
+    return abrirArquivo();
   })
 
 };
@@ -81,3 +91,10 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+async function abrirArquivo(){
+  const { canceled, filePaths } = await dialog.showOpenDialog(options)
+  if(!canceled){
+    return filePaths[0];
+  }
+}
